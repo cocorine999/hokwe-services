@@ -10,7 +10,7 @@ class AppTextStyle {
     return AppTextStyle._(theme);
   }
 
-  static const TextTheme textTheme =  TextTheme(
+  TextTheme textTheme =  const TextTheme(
 
     displayLarge: _headline1,
 

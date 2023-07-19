@@ -3,43 +3,41 @@ import 'package:flutter/services.dart';
 import 'package:test_3_7_0/src/configs/themes/styling.dart';
 
 class AppTheme {
-  AppTextStyle textStyle;
 
   final ThemeData theme;
 
-  AppTheme._(this.theme, this.textStyle);
+  AppTheme._(this.theme);
 
   static AppTheme of(BuildContext context) {
-    final theme = Theme.of(context);
-    print(theme.brightness);
-    final textStyle = AppTextStyle.of(context);
-    return AppTheme._(theme, textStyle);
+    //final textStyle = AppTextStyle.of(context);
+    final theme = Theme.of(context).brightness == Brightness.light ? lightTheme(context) : darkTheme;
+    // print(theme.brightness);
+    return AppTheme._(theme);
   }
 
-  ThemeData get lightTheme {
+  static ThemeData lightTheme(BuildContext context) {
+    print("I/m here");
     return ThemeData(
       fontFamily: 'Cormorant',
       primaryColor: Colors.blue,
-      colorScheme: ColorScheme.light().copyWith(
+      colorScheme: const ColorScheme.light().copyWith(
         secondary: Colors.orange, // Example: secondary color
       ),
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         color: Colors.blue,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         // Example: light system overlays
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
-        textTheme: TextTheme(
-          headline6: TextStyle(
+        titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-          ),
         ),
       ),
-      textTheme: AppTextStyle.textTheme,
+      textTheme: AppTextStyle.of(context).textTheme,
       buttonTheme: ButtonThemeData(
         buttonColor: Colors.blue,
         shape: RoundedRectangleBorder(
@@ -71,7 +69,7 @@ class AppTheme {
     ),
     scaffoldBackgroundColor: Colors.grey[900],
 
-    fontFamily: 'Cormorant',
+    // fontFamily: 'Cormorant',
     appBarTheme: AppBarTheme(
       color: Colors.grey[900],
       systemOverlayStyle: SystemUiOverlayStyle.light, // Example: light system overlays

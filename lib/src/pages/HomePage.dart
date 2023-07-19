@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            RichText(text: TextSpan(text: "What services are you looking for? ", style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500, color: Colors.black, letterSpacing: 1)))
+            RichText(text: TextSpan(text: "What services are you looking for? ", style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500, color: Colors.black, wordSpacing: 0.4)))
           ],
         )
 

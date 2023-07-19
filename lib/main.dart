@@ -3,6 +3,7 @@ import 'package:test_3_7_0/src/configs/themes/app_theme.dart';
 import 'package:test_3_7_0/src/pages/HomePage.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Set debugShowCheckedModeBanner to false
       title: 'Flutter Demo',
-      theme: appTheme.lightTheme,
+      theme: appTheme.theme,
       home: const HomePage(title: "Hokwe Services"),
     );
   }
